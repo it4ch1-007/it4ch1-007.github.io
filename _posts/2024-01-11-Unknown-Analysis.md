@@ -7,24 +7,27 @@
 ### Hashes
 
 
-![Alt text](images/image.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/2ec97056-4056-4494-9df7-046c0b69fac5)
 
 ### VirusTotal.com
 
-![Alt text](images/image-1.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/4ce23603-2572-4175-a6d8-5d6b266d550d)
+
 
 ### Strings 
 
 Nothing much could be found in the strings of the exe file.
 
-![Alt text](images/image-2.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/74fdaefd-6867-4209-b00a-650ba19ef3c9)
+
 
 
 ## Dynamic Analysis
 
 ### Activity
 
-![Alt text](images/image-3.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/c2453adc-0adf-4027-ba0c-30282d93cd36)
+
 
 In  the Procmon , the unknown.exe appears that it is starting a thread in the background and appear to have donw nothing really.
 
@@ -34,22 +37,26 @@ In  the Procmon , the unknown.exe appears that it is starting a thread in the ba
 ```
 C:\\Users\Public\passwrd.txt
 ```
-![Alt text](images/image-5.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/31052234-67af-4bb5-b078-47ba33bac9ba)
+
 
 - The exe is opening an image <b> 'cosmo.jpeg' </b> 
 
-![Alt text](images/image-6.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/34c0917d-0bae-4619-b38e-bef44c0f0f39)
+
 
 - The exe is calculating the base64 of the contents of the image file and then encrypting using RC4 algorithm. 
 
 
 - The exe uses the method <b> 'houdini' </b> as a function that deletes the exe file on the fulfillment of the above coinsitions.
 
-![Alt text](images/image-7.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/316a9455-e61f-4b09-8166-933bc41c6eee)
+
 
 - The exe uses <b> 'Sikomode' </b> stored in the file <b>'passwrd.txt'</b> as the key for RC4 encryption.
 
-![Alt text](images/image-4.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/e3e299ca-5470-4297-a329-f62d6bd3cb64)
+
 
 - This can be said that if there is an image named <b>cosmo.jpeg</b> inside the specified path then the exe file will open it and encrypt it using base64 and RC4 encryption algorithm with the key <b> Sikomode </b>
 
@@ -77,7 +84,9 @@ http://cdn.altimiter.local/feed?post=[data]
 The exe will check for the kill_switch first before detonation and thus it will try to connect to a URL , if that exists then the exe will delete itself then and there only and will not function anymore. 
 
 - The URL is checked by a buffer located at :
-![Alt text](images/image-8.png)
+
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/2789bfd2-ed2a-4d31-bff3-d0acef986a27)
+
 in the binary .
 
 - It appears empty as it is being written into the memory at runtime.
