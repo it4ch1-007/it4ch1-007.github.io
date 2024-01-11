@@ -93,7 +93,8 @@ We will use ProcMon to track the activities on the background the application is
 
 - I filtered the (Process Name)(containing)(putty) and got this ->
 
-![Alt text](image-12.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/2c352b99-7007-4046-9688-88ba65c3111b)
+
 
 - Through this we got the Parent PID of the process running on the background due to action of our malware.
 
@@ -118,7 +119,8 @@ We will use ProcMon to track the activities on the background the application is
 
 - I opened this process details and saw that it is only the process that is running the powershell on the background but probably disables its box appearance.
 
-![Alt text](image-22.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/449657c4-f6f5-4543-9f61-07d3106d325d)
+
 
 - I got this in the process and started analysing it in the sublime text editor.
 
