@@ -10,16 +10,19 @@
 
 
 - We have an application with an icon similar to normal looking pdf file.
-![Alt text](images/image1.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/86285908-dab7-48b7-91a4-acee6c630928)
+
 
 
 ### Static Analysis
 
 #### CFF Explorer
-![Alt text](images/image.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/07d8a287-b5d4-4325-8ed8-c1fd0e7fd809)
+
 
 #### Task Manager
-![Alt text](images/image3.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/e3a03ab9-89f1-4fd6-a4b6-5a1d05ad19d2)
+
 
 ### Dynamic Analysis
 
@@ -33,7 +36,8 @@ using GetFont function.
 
 - Online Requests
 I analysed the requests the exe file is trying to make online by using Fakenet.
-![Alt text](images/image5.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/f6f871fe-bc4c-4f0a-a660-aabdc0bd0a68)
+
 
 ```
 Host: bdns.io
@@ -46,7 +50,8 @@ Medium Used: Curl
 
 - The other exe files are majorly doing the same thing altogether:
 
-![Alt text](images/image4.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/00b6f7f9-e38e-4701-a940-1c07f9335d11)
+
 
 ```
 Host : wpad.localdomain
