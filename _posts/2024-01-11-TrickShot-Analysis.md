@@ -81,6 +81,7 @@ rule trickshot_bot{
         $host2 = "bdns.io"
         $font = "S Sans Serif"
         $shell_byte_string = b"\xcb\xcc+7\x8f\xadEd\x8f\xadEd\x8f\xadEd\xd9\xb2Vd\xab\xadEd\x8f\xadEd\x82\xadEd\xed\xb2Vd\x9e\xadEd\x8f\xadDd\x18\xacEd\x0c\xb1Kd\x94\xadEdg\xb2Od\x18\xadEdg\xb2Nd\xc0\xadEd7\xabCd\x8e\xadEdRich\x8f\xadEd"
+        
     condition:
         unint16(0) == 0x5A4D
 }
