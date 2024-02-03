@@ -1,9 +1,11 @@
 ---
   title: "Operating System"
   date: 2024-02-03 00:00:00 +0800
-  categories: Low Level Programming
-  tags: [Low Level Programming,Notes]
+  categories: Low_Level_Programming
+  tags: [Low_Level_Programming,Notes]
 ---
+
+# OPERATING SYSTEM
 
 - Moores Law: Every decade the number of digital devices will double themselves.
 - Kernel is the core component of the OS system and it is used for system calls and other utility works while OS is generally used for user interface.
