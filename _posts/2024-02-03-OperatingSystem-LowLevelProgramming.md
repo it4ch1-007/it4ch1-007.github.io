@@ -14,7 +14,8 @@
 - system calls are actually the interrupts called by a software.
 ### VonNeumann Arch:
 
-![image](https://github.com/it4ch1-007/MA_notes/assets/133276365/cca04c25-4d7d-476b-b44e-8986e8104543)
+![image](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/06a644ff-9333-406d-9a8e-2da5566d3011)
+
     
 - Buses
     - Data bus: carries data among the memory units
