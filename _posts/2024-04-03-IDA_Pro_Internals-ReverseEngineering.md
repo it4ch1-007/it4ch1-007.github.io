@@ -10,7 +10,7 @@
 
 ### How does a disassembler works?
 
-- identifying the entrypoint of the code snippet
+- identifying the entry point of the code snippet
 - matching the binary opcode into the found assembly instruction
 - Two methods are linear sweep and recursive descent
 
