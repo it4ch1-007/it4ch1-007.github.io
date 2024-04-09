@@ -35,7 +35,8 @@ https://chocolatey.org/install
 
 ##### Increasing the Gold
 
-![alt text](..images_ch1/image-2.png)
+![image-2](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/ea122296-b6d6-4f69-9f1f-88991d5932f1)
+
 
 - Here you can see the gold we have initially in the game is `40`. What if we can change this gold value without even playing the game!!!!
 
@@ -43,26 +44,30 @@ https://chocolatey.org/install
 - Let's first find where in the game memory the value of `Gold` is stored:
     
 
-    ![alt text](../images_ch1/image-4.png)
+    ![image-4](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/a7776e5d-2243-4ff1-b0ab-8ab552c04c33)
 
     - We will scan the memory for the value `40`
     - But we have many possibilities for this value . Thus we will decrease the value of gold accordingly and scan again.
 
     - Now we will recruit a unit to decrease the gold value.
 
-    ![alt text](..images_ch1/image-3.png)
+    ![image-3](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/89fc7cb9-a681-47e1-b7df-9051086e85a4)
 
-    ![alt text](..images_ch1/image-5.png)
+
+    ![image-5](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/14c1ccbf-5464-4a9d-9446-eec045802167)
+
 
     - Now we will search the value `26` in the memory through the scanner.
 
-    ![alt text](..images_ch1/image-6.png)
+    ![image-6](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/d8c80c7b-2671-424c-9cd7-7d628d26e755)
+
 
     - And here we go, We have only one possibility, thus we can say that at this address the Gold value is stored inside the memory.
 
     - Now we will try to change the value of the selected address and set `200` as the new value.
 
-    ![alt text](..images_ch1/image-7.png)
+    ![image-7](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/1b05fcfc-d50e-405e-ba3d-89349a933a68)
+
 
     - And the value changed in the game too . Giving us `200` gold from nowhere.
 
