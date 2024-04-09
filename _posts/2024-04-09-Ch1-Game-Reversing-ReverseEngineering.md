@@ -69,7 +69,10 @@ Cheat Engine is a very strong and inportant tool for game hacking and memopry re
     ![image-7](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/1b05fcfc-d50e-405e-ba3d-89349a933a68)
 
 
+
+
     - And the value changed in the game too . Giving us `200` gold from nowhere.
 
 Thus it is evident that we can easily change the hardcoded global variables inside the game memory whose addresses can be found and also modify their values according to us.
 
+Reference: Game Hacking Academy by attilathedud
