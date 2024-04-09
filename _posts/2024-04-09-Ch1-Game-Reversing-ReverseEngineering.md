@@ -1,5 +1,5 @@
 --- 
-  title: "Game Reversing: Ch1"
+  title: "Game Reversing: CH-1"
   date: 2024-04-09 00:00:00  +0800
   categories: Reverse Engineering
   tags: [ReverseEngineering]
@@ -17,11 +17,6 @@ However this series is for the readers which have just basic knowledge of assemb
 
 But first of all we will take a demo game that is easy to understand and does'nt have much security or anti-cheat mechanisms like modern Steam games.
 
-### CHEAT ENGINE
-
-Cheat Engine is a very strong and inportant tool for game hacking and memopry reading. It helps us to read the memory of the game during runtime and find specific values. Also it helps us to set breakpoints at the specific addresses to be able to debug the game memory,
-
-
 - As we will need a demo game to test on, thus we will download `The Battle Of Wesnoth` game using `choco install wesnoth`. 
 
 ```
@@ -32,6 +27,11 @@ https://chocolatey.org/install
 - Battle of Wesnoth is a simple game that requires many startegies like `Recruiting an Army`,`Training the soldiers` and many more strategies while attacking too.
 
 - Everytime we buy or recruit a soldier then our gold decreases. You can try that by just recruiting a random soldier.
+
+
+### CHEAT ENGINE
+
+Cheat Engine is a very strong and inportant tool for game hacking and memopry reading. It helps us to read the memory of the game during runtime and find specific values. Also it helps us to set breakpoints at the specific addresses to be able to debug the game memory,
 
 ##### Increasing the Gold
 
