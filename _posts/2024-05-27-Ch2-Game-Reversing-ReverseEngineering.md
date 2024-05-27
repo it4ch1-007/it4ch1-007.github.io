@@ -1,6 +1,6 @@
 --- 
   title: "Game Reversing: Ch2"
-  date: 2024-0527 00:00:00  +0800
+  date: 2024-05-27 00:00:00  +0800
   categories: Reverse Engineering
   tags: [ReverseEngineering]
 ---
