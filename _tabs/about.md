@@ -5,8 +5,8 @@ order: 4
 ---
 
 <p align="left">
-  <img src="itachi_profile_photo.jpg" alt="Itachi Profile Photo" width="300" height="300">
-
+  <img src="![itachi_profile_photo](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/8b2351a3-c560-4673-9745-c87fea928fe6)" alt="Itachi Profile Photo" width="300" height="300">
+  
 </p>
 
 
