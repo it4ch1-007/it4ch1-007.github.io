@@ -4,18 +4,14 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<p align="left">
-  <img src="itachi_profile_photo.jpg" alt="Itachi Profile Photo" width="300" height="300">
-  
-</p>
+![itachi_profile_photo](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/3f416ee5-7765-4c82-b3dd-569be5a7761a)
+
 
 
 
 I am a cybersecurity enthusiast with a strong background in the field of Android Security. Being a Reverse Engineer and CTF Player at one of the top CTF teams in the world `InfoSecIITR`, I have been exploring the field of Malware Analysis and Reverse Engineering honing my skills through practical challenges. This has not only deepened my knowledge about different attack vectors but also gave me deep understanding of defense mechanisms against new malwares and exploits.
 
-<p align="center">
-  <img src="logo_infosec.png" alt="InfoSec Logo" width="200" height="200">
-</p>
+![logo_infosec](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/cff46ac3-1be0-43de-9c92-1996298b10c3)
 
 Apart from security, I have been involved in Low-level development using modern languages like Rust,C,C++ and Go. Programming in these languages has helped me to write efficient and high performance code and tackle daily life programming challenges.
 
