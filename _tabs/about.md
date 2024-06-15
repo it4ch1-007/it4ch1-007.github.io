@@ -19,6 +19,10 @@ InfoSecIITR has also helped me in integration with various security projects lik
 
 In the field of cybersecurity, there is actually no limit, as soon as a software is developed thousand ways are there to exploit it , but if we can find those thousand ways we can surely find the one way to defend it.
 
+Here is my Attached Resume: [Download Document](Akshitresume.pdf)
+
+
+
 `#REV4LYF`
 
 
