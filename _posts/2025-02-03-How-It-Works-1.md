@@ -1,5 +1,5 @@
 ---
-  title: "How It Works - 1 {The working of LuckyPatcher.apk}"
+  title: "How It Works - 1 \n The working of LuckyPatcher.apk"
   date: 2025-02-03 00:00:00 +0800
   categories: How It Works 
   tags: [How It Works,LuckyPatcher,ReverseEngineering]
@@ -180,10 +180,12 @@ It is generally used inside a rooted device environment to execute privileged co
 ## How does LuckyPatcher remove Ads?
 - This is a important feature of LuckyPatcher through which it is able to ensure that no ads are shown by the application ever after.
 - This is done using a AdsBlockList embedded inside the app. This list is stored at: `/storage/emulated/0/Android/data/ru.tyozedjz.fiaqovwzr/files/LuckyPatcher/AdsBlockList.txt`. It potentially contains a number of website urls that will be blocked by the patcher by simply erasing them inside the target application.
+
 ```
+
 [HTTP]
 /ads
-.ads.
+.ads. 
 -ads.
 .ad.
 /ad.
@@ -257,6 +259,7 @@ com.google.android.gms.ads.identifier.service.START
 ads.mopub.com
 doubleclick.net
 googleadservices.com
+
 ```  
 - The app will simply erase these urls so that the target app cannot communicate with the url where it is able to fetch the ads. It has some http specific urls and some strings that might appear inside the methods trying to fectch google ads.
 - There is also a list named `AdsBlockList_user_edit.txt` that stores the urls that the user custom edits if he wants to block more ads or either allow ads from some urls.
