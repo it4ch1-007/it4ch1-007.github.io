@@ -1,8 +1,8 @@
 ---
   title: "RAT Analysis [SillyPutty.exe]"
   date: 2024-01-11 00:00:00 +0800
-  categories: Malware Analysis
-  tags: [Malware Analysis, RAT]
+  categories: Malware_Analysis
+  tags: [Malware_Analysis, RAT]
 ---
 
 # SillyPutty.exe

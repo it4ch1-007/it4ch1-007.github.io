@@ -1,8 +1,8 @@
 ---
   title: "Operating System"
   date: 2024-02-03 00:00:00 +0800
-  categories: LowLevelProgramming
-  tags: [LowLevelProgramming,Notes]
+  categories: Low_Level_Programming
+  tags: [Low_Level_Programming,Notes]
 ---
 
 # OPERATING SYSTEM

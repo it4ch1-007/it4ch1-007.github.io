@@ -1,8 +1,8 @@
 ---
   title: "Scene Analysis"
   date: 2024-09-17 00:00:00 +0800
-  categories: Malware Analysis
-  tags: [Malware Analysis,Scene]
+  categories: Malware_Analysis
+  tags: [Malware_Analysis,Scene]
 ---
 
 

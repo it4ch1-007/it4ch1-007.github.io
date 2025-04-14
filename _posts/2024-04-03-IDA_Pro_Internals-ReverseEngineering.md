@@ -1,8 +1,8 @@
 ---
   title: "IDA Pro Internals"
   date: 2024-04-03 00:00:00 +0800
-  categories: ReverseEngineering
-  tags: [ReverseEngineering,Notes]
+  categories: Reverse_Engineering
+  tags: [Reverse_Engineering,Notes]
 ---
 
 # IDAPRO

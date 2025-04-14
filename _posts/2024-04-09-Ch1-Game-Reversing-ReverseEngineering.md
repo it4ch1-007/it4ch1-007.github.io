@@ -1,8 +1,8 @@
 --- 
   title: "Game Reversing: CH-1"
   date: 2024-04-09 00:00:00  +0800
-  categories: Reverse Engineering
-  tags: [ReverseEngineering]
+  categories: Reverse_Engineering
+  tags: [Reverse_Engineering]
 ---
 
 

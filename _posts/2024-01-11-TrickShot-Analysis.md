@@ -1,8 +1,8 @@
 ---
   title: "TrickShot Bot Analysis"
   date: 2024-01-11 00:00:00 +0800
-  categories: Malware Analysis
-  tags: [Malware Analysis,TrickBot]
+  categories: Malware_Analysis
+  tags: [Malware_Analysis,TrickBot]
 ---
 
 

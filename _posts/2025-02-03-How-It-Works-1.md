@@ -1,8 +1,8 @@
 ---
   title: "How It Works(1) || The working of LuckyPatcher.apk"
   date: 2025-02-03 00:00:00 +0800
-  categories: How It Works 
-  tags: [How It Works,LuckyPatcher,ReverseEngineering]
+  categories: How_It_Works 
+  tags: [How_It_Works,LuckyPatcher,Reverse_Engineering]
 ---
 
 ## Reversing LuckyPatcher(11.6.7) apk

@@ -1,7 +1,7 @@
 --- 
 title: "Decompetition.io Writeups"
 date: 2024-01-11 00:00:00  +0800
-categories: Decompetition Writeups
+categories: Decompetition_Writeups
 tags: [decompetition.io]
 ---
 
