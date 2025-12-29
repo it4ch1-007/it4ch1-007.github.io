@@ -29,7 +29,7 @@ Today we will analyze the most famous Android multi-instancing application that 
 
 ## Parallel Space Application
 
-![alt text](<../images_parallelspace/Pasted image 20251222211020.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222211020.png>)
 
 Parallel space is an Android app that created isolated virtual runtime environment to run multiple instances of the same app simultaneously, keep separate accounts and isolate apps from the main profile. It does sandboxing, user profile duplication and virtualization instead of modifying anything inside the original app's code logic.
 
@@ -50,7 +50,7 @@ Standard Android applications must declare all their Activities within the `Andr
 
 However, as Parallel Space app cannot know beforehand which apps a user will choose to clone, it cannot declare those foreign activities in its own manifest. Instead, it executes some particular techniques to act as a dynamic mediator between the Android OS and the cloned application.
 
-![alt text](<../images_parallelspace/Pasted image 20251222180555.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222180555.png>)
 
 - AndroidManifest of Parallel Space app showing registered DummyActivity.
 
@@ -64,13 +64,13 @@ This is exactly why opening /proc/self/maps during a session yields surprising r
 Since Parallel Space is technically the one running the DummyActivity, the OS only sees Parallel Space's footprint. The cloned app is merely 'piggybacking' inside that process, which is why the system traces lead back to the host app, not the clone.
 ```
 
-![alt text](<../images_parallelspace/Pasted image 20251222180454.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222180454.png>)
 
 - frida-trace output showing use of DummyActivity by the Parallel Space App.
 
 The output of the frida-trace tool shows the logs when a cloned app is launched using the parallel space app.
 
-![alt text](<../images_parallelspace/Pasted image 20251222180838.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222180838.png>)
 
 - frida - trace while adding the target app to virtual environment. The Parallel Space app checks if there are common apps inside the original host device like facebook, messaging, youtube and others by hooking the package manager service.
 
@@ -78,13 +78,13 @@ Parallel Space app clones some apps at the time when we download them like youtu
 
 2. Activity Manager Service Hooking
 
-![alt text](<../images_parallelspace/Pasted image 20251222181020.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181020.png>)
 
 - Hooking AMS while starting the target app. This is to hook the `startActivity` function and intercept the requests of the app going to and fro from the OS, creating a fake interception service.
 
 This is also to make sure that when an activity of the cloned app starts another activity of the cloned app then it will be able to resolve it and launch it.
 
-![alt text](<../images_parallelspace/Pasted image 20251222181147.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181147.png>)
 
 -  This function is reponsible for adding a cloned application into the virtualized environment.
 
@@ -93,7 +93,7 @@ It captures the package name and other details of the target application like it
 
 3. ClassLoader Injection
 
-![alt text](<../images_parallelspace/Pasted image 20251222181316.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181316.png>)
 
 - Loading the original base.apk from its original path inside the host device. 
 
@@ -103,7 +103,7 @@ There is no new application copied or created inside the virtual environment. Th
 
 Basically when we open the cloned app then we open the same app but only the environment variables and some particular properties of the app like uid and pid are changed due to the sandbox created by the parallel space app.
 
-![alt text](<../images_parallelspace/Pasted image 20251222181408.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181408.png>)
 
 - Getting all the environment vars and data from the files of the original APK to load into the virtual environment. This is to simulate a virtual modified environment for the loaded classes of the original apk.
 
@@ -112,21 +112,21 @@ Parallel Space app changes some particular env variables to simulate another use
 
 4. File system virtualization
 
-![alt text](<../images_parallelspace/Pasted image 20251222181553.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181553.png>)
 
 - Moving the icon image from the original apk storage path to the virtual environment. The parallel space app loads the icon of the original apk as a separate activity from its storage directory.
 
-![alt text](<../images_parallelspace/Pasted image 20251222181709.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222181709.png>)
 
 - Accessing NativeHelper API to get the files into the storage directory of the parallel space app with modified permissions and environment and fake the target app `uid = 0`. This is done after modifying the environment of the new cloned application.
 
-![alt text](<../images_parallelspace/Pasted image 20251222210111.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251222210111.png>)
 
 - Saving the native library  by `.flag` and `.flag.lock` extensions.
 
 To prevent the app's code from being reversed the Parallel Space app also loads the native liibrary code dynamically during the execution of the app. Then they are saved inside its storage directory and deleted if there is any error or the process is finished.
 
-![alt text](<../images_parallelspace/Pasted image 20251223011632.png>)
+![alt text](<../images_parallelspace/Pasted_image_20251223011632.png>)
 
 - This is to hide the native libraries from normal decompilation using tools like `apktool` and hide their native functions using obfuscation.
 
