@@ -9,7 +9,7 @@ order: 4
 
 
 
-I am a cybersecurity enthusiast with a strong background in the field of Android Security. Being a Reverse Engineer and CTF Player at one of the top CTF teams in the world `InfoSecIITR`, I have been exploring the field of Malware Analysis and Reverse Engineering honing my skills through practical challenges. This has not only deepened my knowledge about different attack vectors but also gave me deep understanding of defense mechanisms against new malwares and exploits.
+I am a cybersecurity enthusiast with a strong background in the field of Android Security. Being a Reverse Engineer and CTF Player at one of the top CTF teams in the world `InfoSecIITR`, I have been exploring the field of Android Security and Reverse Engineering honing my skills through practical challenges. This has not only deepened my knowledge about different attack vectors but also gave me deep understanding of defense mechanisms against new malwares and exploits.
 
 ![logo_infosec](https://github.com/it4ch1-007/it4ch1-007.github.io/assets/133276365/cff46ac3-1be0-43de-9c92-1996298b10c3)
 
