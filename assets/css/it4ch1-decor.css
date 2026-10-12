@@ -1,0 +1,234 @@
+/*
+ * it4ch1 decor for jekyll-theme-chirpy 6.x
+ * Every numbered block is independent: delete any block you don't like.
+ */
+
+:root {
+  --it-red: #d1293d;          /* blood-moon crimson, matches the avatar */
+  --it-red-text: #ff6b7a;     /* lighter crimson, readable as text on dark bg */
+  --it-red-glow: rgba(209, 41, 61, 0.45);
+  --it-red-faint: rgba(209, 41, 61, 0.1);
+  --it-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+::selection {
+  background: rgba(209, 41, 61, 0.35);
+  color: #fff;
+}
+
+/* 1. Blood-moon avatar: crimson double rim with a slow breathing glow ------ */
+#sidebar #avatar {
+  animation: it-moon 5s ease-in-out infinite;
+}
+
+@keyframes it-moon {
+  0%, 100% {
+    box-shadow:
+      0 0 0 2px var(--it-red),
+      0 0 0 6px var(--sidebar-bg),
+      0 0 0 7px rgba(209, 41, 61, 0.25),
+      0 0 14px 2px rgba(209, 41, 61, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px var(--it-red),
+      0 0 0 6px var(--sidebar-bg),
+      0 0 0 7px rgba(209, 41, 61, 0.55),
+      0 0 30px 6px rgba(209, 41, 61, 0.42);
+  }
+}
+
+/* 2. Site title: short RGB-split glitch, only when hovered ----------------- */
+#sidebar .site-title a {
+  display: inline-block;
+}
+
+#sidebar .site-title a:hover {
+  color: var(--site-title-color);
+  animation: it-glitch 0.45s steps(2, end) 1;
+}
+
+@keyframes it-glitch {
+  0%   { text-shadow: 2px 0 var(--it-red), -2px 0 #3ad1e6; transform: translate(0); }
+  25%  { text-shadow: -2px 0 var(--it-red), 2px 0 #3ad1e6; transform: translate(-1px, 1px); }
+  50%  { text-shadow: 1px -1px var(--it-red), -1px 1px #3ad1e6; transform: translate(1px, -1px); }
+  75%  { text-shadow: -1px 0 var(--it-red), 1px 0 #3ad1e6; transform: translate(0, 1px); }
+  100% { text-shadow: none; transform: none; }
+}
+
+/* 3. Tagline: blinking terminal cursor after "REV4LYF" --------------------- */
+#sidebar .site-subtitle::after {
+  content: "_";
+  margin-left: 2px;
+  font-style: normal;
+  color: var(--it-red-text);
+  animation: it-blink 1.1s steps(1) infinite;
+}
+
+@keyframes it-blink {
+  50% { opacity: 0; }
+}
+
+/* 4. Sidebar nav: crimson marker on the active tab, icon reacts on hover --- */
+#sidebar ul li.nav-item.active .nav-link {
+  box-shadow: inset 3px 0 0 var(--it-red);
+}
+
+#sidebar ul li.nav-item a.nav-link i {
+  transition: color 0.25s ease, transform 0.25s var(--it-ease);
+}
+
+#sidebar ul li.nav-item a.nav-link:hover i,
+#sidebar ul li.nav-item.active a.nav-link i {
+  color: var(--it-red-text);
+  opacity: 1;
+}
+
+#sidebar ul li.nav-item a.nav-link:hover i {
+  transform: translateX(2px);
+}
+
+/* 5. Home post cards: one staggered entrance on load + hover response ----- */
+#post-list .card-wrapper {
+  animation: it-rise 0.55s var(--it-ease) both;
+}
+#post-list .card-wrapper:nth-child(2)  { animation-delay: 0.06s; }
+#post-list .card-wrapper:nth-child(3)  { animation-delay: 0.12s; }
+#post-list .card-wrapper:nth-child(4)  { animation-delay: 0.18s; }
+#post-list .card-wrapper:nth-child(5)  { animation-delay: 0.24s; }
+#post-list .card-wrapper:nth-child(6)  { animation-delay: 0.3s; }
+#post-list .card-wrapper:nth-child(n+7) { animation-delay: 0.36s; }
+
+@keyframes it-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+#post-list .post-preview {
+  position: relative;
+  transition: transform 0.3s var(--it-ease), box-shadow 0.3s ease;
+}
+
+/* crimson edge that grows in from the middle on hover */
+#post-list .post-preview::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--it-red);
+  transform: scaleY(0);
+  transition: transform 0.3s var(--it-ease);
+}
+
+#post-list .post-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow), 0 10px 28px -14px var(--it-red-glow);
+}
+
+#post-list .post-preview:hover::after,
+#post-list .post-preview:focus-visible::after {
+  transform: scaleY(1);
+}
+
+#post-list .card-body .card-title {
+  transition: color 0.25s ease;
+}
+
+#post-list .post-preview:hover .card-title {
+  color: var(--it-red-text) !important;
+}
+
+#post-list .post-preview:focus-visible {
+  outline: 2px solid var(--it-red);
+  outline-offset: 3px;
+}
+
+/* 6. Tags: crimson outline on hover (trending, post footer, tags page) ----- */
+#access-tags .post-tag,
+.post-tags .post-tag,
+#tags .tag {
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+#access-tags .post-tag:hover,
+.post-tags .post-tag:hover,
+#tags .tag:hover {
+  color: var(--it-red-text) !important;
+  border-color: var(--it-red) !important;
+  background: var(--it-red-faint) !important;
+}
+
+/* 7. Ambient blood-moon glow in the top-right + frosted topbar ------------- */
+body {
+  background-image: radial-gradient(
+    640px circle at 92% -160px,
+    rgba(209, 41, 61, 0.11),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#topbar-wrapper {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* 8. Reading progress bar on posts (element is added by it4ch1-decor.js) -- */
+#it-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #7a0f1c, var(--it-red), var(--it-red-text));
+  box-shadow: 0 0 8px var(--it-red-glow);
+  pointer-events: none;
+}
+
+/* 9. Post & About content: h2 underline, softer images ---------------------- */
+.content > h2::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-top: 0.45rem;
+  border-radius: 2px;
+  background: var(--it-red);
+}
+
+.content a.popup img,
+.content > p > img {
+  border-radius: 0.6rem;
+}
+
+.content a.popup:hover img {
+  box-shadow: 0 12px 32px -14px var(--it-red-glow);
+}
+
+/* Respect people who turn off motion ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  #sidebar #avatar,
+  #sidebar .site-title a:hover,
+  #sidebar .site-subtitle::after,
+  #post-list .card-wrapper {
+    animation: none !important;
+  }
+
+  #sidebar #avatar {
+    box-shadow: 0 0 0 2px var(--it-red), 0 0 0 6px var(--sidebar-bg),
+      0 0 0 7px rgba(209, 41, 61, 0.35), 0 0 20px 3px rgba(209, 41, 61, 0.3);
+  }
+
+  #post-list .post-preview:hover,
+  #sidebar ul li.nav-item a.nav-link:hover i {
+    transform: none;
+  }
+}
