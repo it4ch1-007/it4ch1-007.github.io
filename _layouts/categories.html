@@ -1,0 +1,105 @@
+---
+layout: page
+# All the Categories of posts.
+# it4ch1 override of the Chirpy 6.3 layout: each category expands to list its posts,
+# and a thin bar shows how big each category is compared to the largest one.
+---
+
+{% include lang.html %}
+
+{% assign HEAD_PREFIX = 'h_' %}
+{% assign LIST_PREFIX = 'l_' %}
+
+{% assign group_index = 0 %}
+
+{% assign sort_categories = site.categories | sort %}
+
+{% assign max_posts = 1 %}
+{% for category in sort_categories %}
+  {% assign _n = category | last | size %}
+  {% if _n > max_posts %}
+    {% assign max_posts = _n %}
+  {% endif %}
+{% endfor %}
+
+<div class="it-cats">
+  {% for category in sort_categories %}
+    {% assign category_name = category | first %}
+    {% assign posts_of_category = category | last %}
+    {% assign first_post = posts_of_category | first %}
+
+    {% if category_name == first_post.categories[0] %}
+      {% assign sub_categories = '' | split: '' %}
+
+      {% for post in posts_of_category %}
+        {% assign second_category = post.categories[1] %}
+        {% if second_category %}
+          {% unless sub_categories contains second_category %}
+            {% assign sub_categories = sub_categories | push: second_category %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign sub_categories = sub_categories | sort %}
+      {% assign sub_categories_size = sub_categories | size %}
+      {% assign top_posts_size = posts_of_category | size %}
+      {% assign bar_width = top_posts_size | times: 100 | divided_by: max_posts %}
+
+      {% if top_posts_size > 1 %}
+        {% capture post_measure %}{{ site.data.locales[lang].categories.post_measure.plural | default: site.data.locales[lang].categories.post_measure }}{% endcapture %}
+      {% else %}
+        {% capture post_measure %}{{ site.data.locales[lang].categories.post_measure.singular | default: site.data.locales[lang].categories.post_measure }}{% endcapture %}
+      {% endif %}
+
+      {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
+
+      <div class="card categories it-cat" style="--i: {{ group_index }}">
+        <div id="{{ HEAD_PREFIX }}{{ group_index }}" class="card-header d-flex align-items-center">
+          <button
+            type="button"
+            class="it-cat-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{ LIST_PREFIX }}{{ group_index }}"
+            aria-expanded="false"
+            aria-controls="{{ LIST_PREFIX }}{{ group_index }}"
+            aria-label="Show posts in {{ category_name }}"
+          ></button>
+
+          <i class="far fa-folder fa-fw"></i>
+          <a href="{{ _category_url | relative_url }}" class="it-cat-name">{{ category_name }}</a>
+          <span class="it-cat-count">{{ top_posts_size }} {{ post_measure | strip }}</span>
+
+          <span class="it-cat-bar ms-auto" aria-hidden="true">
+            <span style="width: {{ bar_width }}%"></span>
+          </span>
+
+          <span class="category-trigger" aria-hidden="true">
+            <i class="fas fa-fw fa-angle-down rotate"></i>
+          </span>
+        </div>
+
+        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse">
+          <ul class="list-group">
+            {% if sub_categories_size > 0 %}
+              <li class="list-group-item it-subcats">
+                {% for sub_category in sub_categories %}
+                  {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+                  <a href="{{ _sub_ctg_url | relative_url }}"><i class="far fa-folder fa-fw"></i>{{ sub_category }}</a>
+                {% endfor %}
+              </li>
+            {% endif %}
+
+            {% for post in posts_of_category %}
+              <li class="list-group-item it-cat-post">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {% assign group_index = group_index | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+</div>
