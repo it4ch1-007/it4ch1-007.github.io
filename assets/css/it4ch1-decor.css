@@ -194,7 +194,8 @@ body {
 }
 
 /* 9. Post & About content: h2 underline, softer images ---------------------- */
-.content > h2::after {
+.content > h2::after,
+.content .it-block > h2::after {
   content: "";
   display: block;
   width: 2.5rem;
@@ -230,5 +231,299 @@ body {
   #post-list .post-preview:hover,
   #sidebar ul li.nav-item a.nav-link:hover i {
     transform: none;
+  }
+}
+
+/* 10. About page (classes used in _tabs/about.md) =========================== */
+.it-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+  margin: 1.5rem 0 1.5rem;
+}
+
+/* portrait with a slow blood-moon glow behind it */
+.it-portrait {
+  position: relative;
+  isolation: isolate;
+}
+
+.it-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -4%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(209, 41, 61, 0.6), transparent 70%);
+  filter: blur(26px);
+  animation: it-breathe 6s ease-in-out infinite;
+}
+
+@keyframes it-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(0.94); }
+  50%      { opacity: 0.95; transform: scale(1.08); }
+}
+
+.content .it-portrait a.popup,
+.content .it-team-row a.popup {
+  display: block;
+  margin: 0;
+}
+
+.content .it-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 1px rgba(209, 41, 61, 0.45), 0 18px 40px -18px rgba(0, 0, 0, 0.8);
+  transition: transform 0.5s var(--it-ease), box-shadow 0.3s ease;
+}
+
+.content .it-portrait a.popup:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 1px var(--it-red), 0 16px 40px -14px var(--it-red-glow);
+}
+
+/* terminal card */
+.it-term {
+  border: 1px solid var(--btn-border-color);
+  border-radius: 0.75rem;
+  background: #141416;
+  overflow: hidden;
+  font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.9);
+}
+
+.it-term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--btn-border-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.it-term-bar i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #3a3a3f;
+}
+
+.it-term-bar i:first-child {
+  background: var(--it-red);
+}
+
+.it-term-bar span {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted-color);
+}
+
+.it-term-body {
+  padding: 0.9rem 1.1rem 1rem;
+  color: var(--text-color);
+}
+
+.it-term .ln {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: it-appear 0.01s var(--d, 0s) both;
+}
+
+.it-term .p {
+  color: var(--it-red-text);
+  user-select: none;
+}
+
+.it-term .out {
+  color: var(--text-muted-color);
+}
+
+.it-term .cmd {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  width: calc(var(--n) * 1ch);
+  animation: it-type calc(var(--n) * 55ms) steps(var(--n), end) var(--d, 0s) both;
+}
+
+.it-term .cur {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  background: var(--it-red-text);
+  animation: it-blink 1.1s steps(1) infinite;
+}
+
+@keyframes it-appear {
+  from { opacity: 0; }
+}
+
+@keyframes it-type {
+  from { width: 0; }
+}
+
+/* buttons under the hero */
+.it-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.content .it-links a.it-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--btn-border-color);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.content .it-links a.it-btn:hover {
+  color: var(--it-red-text);
+  border-color: var(--it-red);
+  background: var(--it-red-faint);
+}
+
+.content .it-links a.it-btn-primary,
+.content .it-links a.it-btn-primary:hover {
+  color: #fff;
+  border-color: var(--it-red);
+  background: var(--it-red);
+}
+
+.content .it-links a.it-btn-primary:hover {
+  background: #b51f32;
+  border-color: #b51f32;
+}
+
+.content .it-links a.it-btn:focus-visible {
+  outline: 2px solid var(--it-red-text);
+  outline-offset: 2px;
+}
+
+/* sections */
+.it-block {
+  margin-top: 2.25rem;
+}
+
+.it-team-row {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.content .it-team-row img {
+  display: block;
+  width: 6rem;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.it-team-row p {
+  margin: 0;
+}
+
+.it-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.it-chips span {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--btn-border-color);
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted-color);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+/* closing quote + sign-off */
+.content blockquote.it-quote {
+  margin: 3rem 0 1.25rem;
+  padding: 0.2rem 0 0.2rem 1.25rem;
+  border-left: 3px solid var(--it-red);
+  color: var(--heading-color);
+}
+
+.content blockquote.it-quote p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.it-sign span {
+  display: inline-block;
+  color: var(--it-red-text);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  letter-spacing: 0.05em;
+}
+
+.it-sign span:hover {
+  animation: it-glitch 0.45s steps(2, end) 1;
+}
+
+/* sections fade in as you scroll (only in browsers that support it natively) */
+@supports (animation-timeline: view()) {
+  .it-block,
+  .content blockquote.it-quote {
+    animation: it-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+
+  @keyframes it-reveal {
+    from { opacity: 0; transform: translateY(14px); }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .it-hero {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .it-portrait {
+    width: 11rem;
+  }
+
+  .it-term {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .it-team-row {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .content .it-team-row img {
+    width: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .it-portrait::before,
+  .it-term .ln,
+  .it-term .cmd,
+  .it-term .cur,
+  .it-block,
+  .content blockquote.it-quote,
+  .it-sign span:hover {
+    animation: none !important;
   }
 }
